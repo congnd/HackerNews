@@ -39,6 +39,10 @@
 		22E205A525ED138C008B6B62 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E205A425ED138C008B6B62 /* Endpoint.swift */; };
 		22E205B025ED1398008B6B62 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E205AF25ED1398008B6B62 /* Response.swift */; };
 		22E205BB25ED13E7008B6B62 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E205BA25ED13E7008B6B62 /* Environment.swift */; };
+		22E205C925ED1564008B6B62 /* LoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E205C525ED1564008B6B62 /* LoaderTests.swift */; };
+		22E205CA25ED1564008B6B62 /* TargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E205C625ED1564008B6B62 /* TargetStub.swift */; };
+		22E205CB25ED1564008B6B62 /* TargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E205C725ED1564008B6B62 /* TargetTests.swift */; };
+		22E205CC25ED1564008B6B62 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E205C825ED1564008B6B62 /* EndpointTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +197,10 @@
 		22E205A425ED138C008B6B62 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		22E205AF25ED1398008B6B62 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		22E205BA25ED13E7008B6B62 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		22E205C525ED1564008B6B62 /* LoaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderTests.swift; sourceTree = "<group>"; };
+		22E205C625ED1564008B6B62 /* TargetStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetStub.swift; sourceTree = "<group>"; };
+		22E205C725ED1564008B6B62 /* TargetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetTests.swift; sourceTree = "<group>"; };
+		22E205C825ED1564008B6B62 /* EndpointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +375,10 @@
 		22E204FF25ED0FEF008B6B62 /* ApiTests */ = {
 			isa = PBXGroup;
 			children = (
+				22E205C825ED1564008B6B62 /* EndpointTests.swift */,
+				22E205C525ED1564008B6B62 /* LoaderTests.swift */,
+				22E205C625ED1564008B6B62 /* TargetStub.swift */,
+				22E205C725ED1564008B6B62 /* TargetTests.swift */,
 				22E2050025ED0FEF008B6B62 /* ApiTests.swift */,
 				22E2050225ED0FEF008B6B62 /* Info.plist */,
 			);
@@ -854,6 +866,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E205CA25ED1564008B6B62 /* TargetStub.swift in Sources */,
+				22E205C925ED1564008B6B62 /* LoaderTests.swift in Sources */,
+				22E205CB25ED1564008B6B62 /* TargetTests.swift in Sources */,
+				22E205CC25ED1564008B6B62 /* EndpointTests.swift in Sources */,
 				22E2050125ED0FEF008B6B62 /* ApiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

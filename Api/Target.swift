@@ -22,7 +22,6 @@ public protocol Target: Identifiable {
   var headers: [String: String] { get }
   var authorization: String? { get }
   var data: [String: String] { get }
-  var multipartData: [String: Data] { get }
   var method: Method { get }
 }
 
@@ -33,7 +32,6 @@ public extension Target {
   var headers: [String: String] { [:] }
   var authorization: String? { nil }
   var data: [String: String] { [:] }
-  var multipartData: [String: Data] { [:] }
   var method: Method { .get }
 }
 
@@ -62,6 +60,10 @@ extension Target {
       urlRequest.setValue(authorization, forHTTPHeaderField: "Authorization")
     }
 
+    if data.count > 0 {
+      urlRequest.httpBody = try? JSONEncoder().encode(data)
+    }
+
     return urlRequest
   }
 }
@@ -76,7 +78,6 @@ public struct SignedTarget<T: Target>: Target {
   public var params: [String: String] { decoratee.params }
   public var headers: [String: String] { decoratee.headers }
   public var data: [String: String] { decoratee.data }
-  public var multipartData: [String: Data] { decoratee.multipartData }
   public var method: Method { decoratee.method }
 
   public var authorization: String? { token }

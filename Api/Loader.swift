@@ -1,8 +1,11 @@
 import Foundation
 
-struct ApiResponse<DataType: Decodable>: Decodable {
-  let data: DataType?
-}
+fileprivate let errorDomain = "com.congnd.hackernews"
+
+public let emptyResponseError = NSError(
+  domain: errorDomain,
+  code: 0,
+  userInfo: ["error": "No required data found in the response."])
 
 public protocol CancellableRequest {
   func cancel()
@@ -24,7 +27,7 @@ public final class Loader: LoaderProtocol {
   private lazy var jsonDecoder: JSONDecoder = {
     let jsonDecoder = JSONDecoder()
     jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-    jsonDecoder.dateDecodingStrategy = .iso8601
+    jsonDecoder.dateDecodingStrategy = .secondsSince1970
     return jsonDecoder
   }()
 
@@ -53,13 +56,9 @@ public final class Loader: LoaderProtocol {
       }
 
       do {
-        let responseData = try self.jsonDecoder.decode(ApiResponse<T.DataType>.self, from: data)
+        let responseData = try self.jsonDecoder.decode(T.DataType.self, from: data)
 
-        if let data = responseData.data {
-          completion(.success(data))
-        } else {
-          completion(.failure(.underlying))
-        }
+        completion(.success(responseData))
       } catch {
         completion(.failure(.invalidResponse(error)))
       }

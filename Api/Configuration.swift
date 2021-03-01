@@ -19,7 +19,7 @@ public class Configuration {
   var domain: String {
     switch environment {
     case .prod, .qa, .stg:
-      return ""
+      return "hacker-news.firebaseio.com"
     }
   }
 
