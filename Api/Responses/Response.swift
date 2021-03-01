@@ -10,13 +10,12 @@ public enum Response {
       case pollopt
     }
     public let by: String
-    public let descendants: Int
+    public let descendants: Int?
     public let id: Int
-    public let kids: [Int]
     public let score: Int
     public let time: Date
     public let title: String
     public let type: Type
-    public let url: URL
+    public let url: URL?
   }
 }

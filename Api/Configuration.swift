@@ -14,7 +14,7 @@ public class Configuration {
   public var environment: Environment = .prod
 
   /// Request timeout in seconds.
-  public var timeout: Double = 10
+  public var timeout: Double = 30
 
   var domain: String {
     switch environment {

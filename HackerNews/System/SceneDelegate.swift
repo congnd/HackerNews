@@ -1,5 +1,5 @@
 import UIKit
-import SwiftUI
+import iOS
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
@@ -11,9 +11,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   ) {
     guard let windowScene = (scene as? UIWindowScene) else { return }
 
+    let coordinator = StoriesCoordinator(navigationController: UINavigationController())
+    let appContainer = AppContainerController(coordinator: coordinator)
+
     window = UIWindow(windowScene: windowScene)
-    window?.rootViewController = UIViewController()
-    window?.rootViewController?.view.backgroundColor = .green
+    window?.rootViewController = appContainer
     window?.makeKeyAndVisible()
   }
 }
