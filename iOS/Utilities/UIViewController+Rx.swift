@@ -13,6 +13,7 @@ public extension Reactive where Base: UIViewController {
     return ControlEvent(events: self.sentMessage(#selector(Base.viewDidLoad)).map { _ in Void() })
   }
 
+  /// Add an activity indicator into the view of the view controller under all the current subviews.
   var showEmbeddedActivityIndicator: Binder<Bool> {
     return Binder(self.base) { base, shouldShow in
       if shouldShow {
@@ -30,6 +31,8 @@ public extension Reactive where Base: UIViewController {
     }
   }
 
+  /// Add a label with the message into the view of the view controller
+  /// under all the current subviews. Passing `nil` removes the added labels.
   var showEmbeddedMessage: Binder<String?> {
     return Binder(self.base) { base, message in
       if let message = message {
@@ -52,6 +55,7 @@ public extension Reactive where Base: UIViewController {
     }
   }
 
+  /// Reactive wapper to present an alert view controller with provided message.
   var showAlert: Binder<String> {
     return Binder(base) { _, message in
       let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)

@@ -1,6 +1,7 @@
 import os
 import Domain
 
+/// A concrete implementation of log service using Apple's OS framework.
 public class OsLogService: Domain.LogService {
   static public let shared = OsLogService()
 
