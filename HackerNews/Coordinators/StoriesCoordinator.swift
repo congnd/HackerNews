@@ -28,5 +28,4 @@ extension StoriesCoordinator: StoriesCoordinating {
     browser.dismissButtonStyle = .close
     navigationController.present(browser, animated: true)
   }
-
 }

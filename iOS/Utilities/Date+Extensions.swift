@@ -25,7 +25,6 @@ extension Date {
   }
 }
 
-
 public extension Calendar {
   static let gregorian = Calendar(identifier: .gregorian)
 }

@@ -9,6 +9,7 @@ public enum Response {
       case poll
       case pollopt
     }
+
     public let by: String
     public let descendants: Int?
     public let id: Int
