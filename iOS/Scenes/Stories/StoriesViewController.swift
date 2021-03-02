@@ -75,6 +75,9 @@ private extension StoriesViewController {
       self.sort.accept(.score)
     }))
     sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    if let popoverController = sheet.popoverPresentationController {
+      popoverController.barButtonItem = sortButton
+    }
     present(sheet, animated: true)
   }
 
