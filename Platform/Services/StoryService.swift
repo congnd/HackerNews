@@ -2,14 +2,16 @@ import Domain
 import Api
 
 public final class StoryService: Domain.StoryService {
-  let log: LogService
+  private let log: LogService
+  private let apiLoader: Api.LoaderProtocol
 
-  public init(log: LogService) {
+  public init(apiLoader: Api.LoaderProtocol = Loader(), log: LogService) {
+    self.apiLoader = apiLoader
     self.log = log
   }
 
   public func fetchStories(completion: @escaping (Result<[Story], Error>) -> Void) {
-    Loader().request(target: Endpoint.TopStories()) { result in
+    apiLoader.request(target: Endpoint.TopStories()) { result in
       switch result {
       case .success(let ids):
         self.fetchStories(ids: Array(ids.prefix(50)), completion: completion)
@@ -27,7 +29,7 @@ public final class StoryService: Domain.StoryService {
     var storyResponseCount = 0
 
     ids.forEach { id in
-      Loader().request(target: Endpoint.Story(id: id)) { result in
+      apiLoader.request(target: Endpoint.Story(id: id)) { result in
         storyResponseCount += 1
 
         switch result {

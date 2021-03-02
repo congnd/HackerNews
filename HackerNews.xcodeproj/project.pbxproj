@@ -15,6 +15,7 @@
 		223CA46B25EE8F1B00A88AED /* LogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA46A25EE8F1B00A88AED /* LogService.swift */; };
 		223CA47425EE8F9F00A88AED /* OsLogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA47325EE8F9F00A88AED /* OsLogService.swift */; };
 		223CA47D25EE8FD900A88AED /* LogServiceComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA47C25EE8FD900A88AED /* LogServiceComposer.swift */; };
+		223CA48625EE98A500A88AED /* StoryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA48525EE98A500A88AED /* StoryServiceTests.swift */; };
 		2276CDBD25ED2F33003808AF /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276CDBC25ED2F33003808AF /* Story.swift */; };
 		2276CDC825ED2F8A003808AF /* StoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276CDC725ED2F8A003808AF /* StoryService.swift */; };
 		2276CDD325ED2FC4003808AF /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276CDD225ED2FC3003808AF /* Error.swift */; };
@@ -179,6 +180,7 @@
 		223CA46A25EE8F1B00A88AED /* LogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogService.swift; sourceTree = "<group>"; };
 		223CA47325EE8F9F00A88AED /* OsLogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OsLogService.swift; sourceTree = "<group>"; };
 		223CA47C25EE8FD900A88AED /* LogServiceComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogServiceComposer.swift; sourceTree = "<group>"; };
+		223CA48525EE98A500A88AED /* StoryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryServiceTests.swift; sourceTree = "<group>"; };
 		2276CDBC25ED2F33003808AF /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		2276CDC725ED2F8A003808AF /* StoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryService.swift; sourceTree = "<group>"; };
 		2276CDD225ED2FC3003808AF /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 		22E2055025ED1035008B6B62 /* PlatformTests */ = {
 			isa = PBXGroup;
 			children = (
+				223CA48525EE98A500A88AED /* StoryServiceTests.swift */,
 				22E2055125ED1035008B6B62 /* PlatformTests.swift */,
 				22E2055325ED1035008B6B62 /* Info.plist */,
 			);
@@ -957,6 +960,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22E2055225ED1035008B6B62 /* PlatformTests.swift in Sources */,
+				223CA48625EE98A500A88AED /* StoryServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
