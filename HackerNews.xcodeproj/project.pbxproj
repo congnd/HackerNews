@@ -11,6 +11,7 @@
 		223CA3D025ED490600A88AED /* StoriesViewController+StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA3CF25ED490600A88AED /* StoriesViewController+StoryCell.swift */; };
 		223CA3E425ED4C2700A88AED /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA3E325ED4C2700A88AED /* Stack.swift */; };
 		223CA3EF25ED58CA00A88AED /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA3EE25ED58CA00A88AED /* Date+Extensions.swift */; };
+		223CA43125EE79D100A88AED /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA43025EE79D100A88AED /* UIViewController+Rx.swift */; };
 		2276CDBD25ED2F33003808AF /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276CDBC25ED2F33003808AF /* Story.swift */; };
 		2276CDC825ED2F8A003808AF /* StoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276CDC725ED2F8A003808AF /* StoryService.swift */; };
 		2276CDD325ED2FC4003808AF /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276CDD225ED2FC3003808AF /* Error.swift */; };
@@ -195,6 +196,7 @@
 		223CA3CF25ED490600A88AED /* StoriesViewController+StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoriesViewController+StoryCell.swift"; sourceTree = "<group>"; };
 		223CA3E325ED4C2700A88AED /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		223CA3EE25ED58CA00A88AED /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		223CA43025EE79D100A88AED /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		2276CDBC25ED2F33003808AF /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		2276CDC725ED2F8A003808AF /* StoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryService.swift; sourceTree = "<group>"; };
 		2276CDD225ED2FC3003808AF /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				223CA3C325ED48BF00A88AED /* UITableView+Extensions.swift */,
 				223CA3E325ED4C2700A88AED /* Stack.swift */,
 				223CA3EE25ED58CA00A88AED /* Date+Extensions.swift */,
+				223CA43025EE79D100A88AED /* UIViewController+Rx.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1093,6 +1096,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223CA43125EE79D100A88AED /* UIViewController+Rx.swift in Sources */,
 				2276CE7A25ED38A7003808AF /* ViewModelType.swift in Sources */,
 				2276CE3825ED37D1003808AF /* StoriesViewModel.swift in Sources */,
 				223CA3EF25ED58CA00A88AED /* Date+Extensions.swift in Sources */,

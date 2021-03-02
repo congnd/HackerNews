@@ -3,13 +3,17 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-public protocol StoriesCoordinating: Coordinator {}
+public protocol StoriesCoordinating: Coordinator {
+  func openUrl(_ url: URL)
+}
 
 public class StoriesViewController: UIViewController {
   private weak var coordinator: StoriesCoordinating!
   private let viewModel: StoriesViewModel
 
   private let tableView = UITableView()
+
+  private let sort = PublishRelay<StoriesViewModel.Input.SortBy>()
 
   private let disposeBag = DisposeBag()
 
@@ -40,19 +44,49 @@ private extension StoriesViewController {
     tableView.separatorColor = .clear
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.estimatedRowHeight = 400
+    tableView.estimatedRowHeight = 150
     tableView.refreshControl = UIRefreshControl()
     tableView.register(StoryCell.self)
 
     view.addSubview(tableView)
     tableView.snp.makeConstraints { $0.edges.equalToSuperview() }
+
+    let config = UIImage.SymbolConfiguration(pointSize: 18, weight: .regular, scale: .default)
+    navigationItem.rightBarButtonItem = UIBarButtonItem(
+      image: UIImage(systemName: "arrow.up.arrow.down", withConfiguration: config),
+      style: .plain,
+      target: self,
+      action: #selector(showSortOptions))
+  }
+
+  @objc func showSortOptions() {
+    let sheet = UIAlertController(
+      title: "Sort stories by",
+      message: nil,
+      preferredStyle: .actionSheet)
+    sheet.addAction(UIAlertAction(title: "Time", style: .default, handler: { _ in
+      self.sort.accept(.time)
+    }))
+    sheet.addAction(UIAlertAction(title: "Score", style: .default, handler: { _ in
+      self.sort.accept(.score)
+    }))
+    sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    present(sheet, animated: true)
   }
 
   func setupBinding() {
-    let input = StoriesViewModel.Input()
+    let refresh = tableView.refreshControl!.rx.controlEvent(.valueChanged)
+      .filter { self.tableView.refreshControl!.isRefreshing }
+
+    let input = StoriesViewModel.Input(viewDidLoad: rx.viewDidLoad, refresh: refresh, sort: sort)
     let output = viewModel.transform(input)
-    
+
     output.reloadTableView.emit(to: reloadTableView).disposed(by: disposeBag)
+    output.changes.emit(to: updateTableView).disposed(by: disposeBag)
+    output.embeddedIndicator.emit(to: rx.showEmbeddedActivityIndicator).disposed(by: disposeBag)
+    output.embeddedError.emit(to: rx.showEmbeddedMessage).disposed(by: disposeBag)
+    output.floatingError.emit(to: rx.showAlert).disposed(by: disposeBag)
+    output.isRefreshing.emit(to: tableView.refreshControl!.rx.isRefreshing).disposed(by: disposeBag)
   }
 }
 
@@ -71,6 +105,11 @@ extension StoriesViewController: UITableViewDataSource, UITableViewDelegate {
     cell.setData(story)
 
     return cell
+  }
+
+  public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard let url = viewModel.rows[indexPath.row].url else { return }
+    coordinator.openUrl(url)
   }
 }
 

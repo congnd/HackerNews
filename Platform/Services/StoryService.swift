@@ -34,7 +34,7 @@ public final class StoryService: Domain.StoryService {
 
         if storyResponseCount == ids.count {
           if stories.count == ids.count {
-            completion(.success(stories))
+            completion(.success(stories.sorted(by: { $0.time > $1.time })))
           } else {
             completion(.failure(.general("Could not fetch stories")))
           }

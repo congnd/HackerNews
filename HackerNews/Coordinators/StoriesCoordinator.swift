@@ -23,7 +23,7 @@ final class StoriesCoordinator: NSObject, Coordinator {
 }
 
 extension StoriesCoordinator: StoriesCoordinating {
-  func navigateToBrowser(url: URL) {
+  func openUrl(_ url: URL) {
     let browser = SFSafariViewController(url: url)
     browser.dismissButtonStyle = .close
     navigationController.present(browser, animated: true)

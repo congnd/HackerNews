@@ -21,8 +21,8 @@ extension StoriesViewController {
     func setData(_ story: Story) {
       sourceLabel.text = story.url?.host?.uppercased()
       titleLabel.text = story.title
-      subtitleLabel1.text = "by \(story.by) | \(story.time.elapsedTime)"
-      subtitleLabel2.text = "\(story.score) points | \(story.descendants ?? 0) comments"
+      subtitleLabel1.text = "by \(story.by)・\(story.time.elapsedTime)"
+      subtitleLabel2.text = "\(story.score) points・\(story.descendants ?? 0) comments"
     }
   }
 }
@@ -35,26 +35,34 @@ private extension StoriesViewController.StoryCell {
     let container = UIView()
     contentView.addSubview(container)
     container.snp.makeConstraints {
-      $0.left.right.equalToSuperview().inset(12)
-      $0.top.bottom.equalToSuperview().inset(6)
+      $0.left.right.equalToSuperview().inset(16)
+      $0.top.bottom.equalToSuperview().inset(12)
     }
 
     titleLabel.numberOfLines = 0
     titleLabel.textColor = .black
-    titleLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+    titleLabel.font = .systemFont(ofSize: 17, weight: .semibold)
 
-    sourceLabel.textColor = .gray
-    sourceLabel.font = .systemFont(ofSize: 13)
+    sourceLabel.textColor = .lightGray
+    sourceLabel.font = .systemFont(ofSize: 12)
 
     subtitleLabel1.textColor = .lightGray
-    subtitleLabel1.font = .systemFont(ofSize: 13)
+    subtitleLabel1.font = .systemFont(ofSize: 14)
 
     subtitleLabel2.textColor = .lightGray
-    subtitleLabel2.font = .systemFont(ofSize: 13)
+    subtitleLabel2.font = .systemFont(ofSize: 14)
 
     let subviews = [sourceLabel, titleLabel, subtitleLabel1, subtitleLabel2]
-    let vStack = VStack(spacing: 4, distribution: .fill, aligment: .trailing, subviews: subviews)
+    let vStack = VStack(spacing: 6, distribution: .fill, aligment: .trailing, subviews: subviews)
     container.addSubview(vStack)
     vStack.snp.makeConstraints { $0.edges.equalToSuperview() }
+
+    let separator = UIView()
+    separator.backgroundColor = UIColor.lightGray.withAlphaComponent(0.15)
+    addSubview(separator)
+    separator.snp.makeConstraints { make in
+      make.left.right.bottom.equalToSuperview()
+      make.height.equalTo(1)
+    }
   }
 }
