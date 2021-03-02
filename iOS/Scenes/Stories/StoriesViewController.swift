@@ -13,6 +13,15 @@ public class StoriesViewController: UIViewController {
 
   private let tableView = UITableView()
 
+  private lazy var sortButton: UIBarButtonItem = {
+    let config = UIImage.SymbolConfiguration(pointSize: 18, weight: .regular, scale: .default)
+    return UIBarButtonItem(
+      image: UIImage(systemName: "arrow.up.arrow.down", withConfiguration: config),
+      style: .plain,
+      target: self,
+      action: #selector(showSortOptions))
+  }()
+
   private let sort = PublishRelay<StoriesViewModel.Input.SortBy>()
 
   private let disposeBag = DisposeBag()
@@ -51,12 +60,7 @@ private extension StoriesViewController {
     view.addSubview(tableView)
     tableView.snp.makeConstraints { $0.edges.equalToSuperview() }
 
-    let config = UIImage.SymbolConfiguration(pointSize: 18, weight: .regular, scale: .default)
-    navigationItem.rightBarButtonItem = UIBarButtonItem(
-      image: UIImage(systemName: "arrow.up.arrow.down", withConfiguration: config),
-      style: .plain,
-      target: self,
-      action: #selector(showSortOptions))
+    navigationItem.rightBarButtonItem = sortButton
   }
 
   @objc func showSortOptions() {
@@ -87,6 +91,7 @@ private extension StoriesViewController {
     output.embeddedError.emit(to: rx.showEmbeddedMessage).disposed(by: disposeBag)
     output.floatingError.emit(to: rx.showAlert).disposed(by: disposeBag)
     output.isRefreshing.emit(to: tableView.refreshControl!.rx.isRefreshing).disposed(by: disposeBag)
+    output.isSortAllowed.drive(sortButton.rx.isEnabled).disposed(by: disposeBag)
   }
 }
 

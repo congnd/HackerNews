@@ -21,6 +21,7 @@ public final class StoriesViewModel: ViewModelType {
     let embeddedError: Signal<String?>
     let floatingError: Signal<String>
     let isRefreshing: Signal<Bool>
+    let isSortAllowed: Driver<Bool>
   }
 
   private let storyService: StoryService
@@ -40,6 +41,7 @@ public final class StoriesViewModel: ViewModelType {
     let embeddedError = PublishRelay<String?>()
     let floatingError = PublishRelay<String>()
     let isRefreshing = PublishRelay<Bool>()
+    let isSortAllowed = BehaviorRelay<Bool>(value: false)
 
     input.viewDidLoad.map { true }.bind(to: embeddedIndicator).disposed(by: disposeBag)
     input.viewDidLoad.map { nil }.bind(to: embeddedError).disposed(by: disposeBag)
@@ -52,6 +54,7 @@ public final class StoriesViewModel: ViewModelType {
         case .success(let stories):
           self.rows = stories
           reloadTableView.accept(())
+          isSortAllowed.accept(!self.rows.isEmpty)
         case .failure:
           let message = "Something went wrong \nPull to try again"
           if self.rows.isEmpty {
@@ -74,6 +77,7 @@ public final class StoriesViewModel: ViewModelType {
           self.rows.sort { $0.time > $1.time }
         }
         reloadTableView.accept(())
+        isSortAllowed.accept(!self.rows.isEmpty)
       })
       .disposed(by: disposeBag)
 
@@ -83,7 +87,8 @@ public final class StoriesViewModel: ViewModelType {
       embeddedIndicator: embeddedIndicator.asSignal(),
       embeddedError: embeddedError.asSignal(),
       floatingError: floatingError.asSignal(),
-      isRefreshing: isRefreshing.asSignal())
+      isRefreshing: isRefreshing.asSignal(),
+      isSortAllowed: isSortAllowed.asDriver())
   }
 }
 
