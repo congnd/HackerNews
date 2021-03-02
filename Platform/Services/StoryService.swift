@@ -23,7 +23,7 @@ public final class StoryService: Domain.StoryService {
 
   func fetchStories(ids: [Int], completion: @escaping (Result<[Story], Error>) -> Void) {
     var stories: [Story] = []
-    stories.reserveCapacity(500)
+    stories.reserveCapacity(50)
     var storyResponseCount = 0
 
     ids.forEach { id in
