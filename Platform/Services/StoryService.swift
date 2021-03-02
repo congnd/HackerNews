@@ -2,7 +2,11 @@ import Domain
 import Api
 
 public final class StoryService: Domain.StoryService {
-  public init() {}
+  let log: LogService
+
+  public init(log: LogService) {
+    self.log = log
+  }
 
   public func fetchStories(completion: @escaping (Result<[Story], Error>) -> Void) {
     Loader().request(target: Endpoint.TopStories()) { result in
@@ -11,6 +15,7 @@ public final class StoryService: Domain.StoryService {
         self.fetchStories(ids: Array(ids.prefix(50)), completion: completion)
 
       case .failure(let error):
+        self.log.info(category: .api, error.localizedDescription)
         completion(.failure(.general(error.localizedDescription)))
       }
     }
@@ -29,7 +34,7 @@ public final class StoryService: Domain.StoryService {
         case .success(let story):
           stories.append(Story(from: story))
         case .failure(let error):
-          print("Cong: \(error)")
+          self.log.info(category: .api, error.localizedDescription)
         }
 
         if storyResponseCount == ids.count {

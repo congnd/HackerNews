@@ -17,7 +17,7 @@ final class StoriesCoordinator: NSObject, Coordinator {
   func start() {
     let home = StoriesViewController(
       coordinator: self,
-      viewModel: StoriesViewModel(storyService: StoryService()))
+      viewModel: StoriesViewModel(storyService: StoryService(log: LogServiceComposer.shared)))
     navigationController.viewControllers = [home]
   }
 }

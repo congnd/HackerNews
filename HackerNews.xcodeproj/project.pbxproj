@@ -12,6 +12,9 @@
 		223CA3E425ED4C2700A88AED /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA3E325ED4C2700A88AED /* Stack.swift */; };
 		223CA3EF25ED58CA00A88AED /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA3EE25ED58CA00A88AED /* Date+Extensions.swift */; };
 		223CA43125EE79D100A88AED /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA43025EE79D100A88AED /* UIViewController+Rx.swift */; };
+		223CA46B25EE8F1B00A88AED /* LogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA46A25EE8F1B00A88AED /* LogService.swift */; };
+		223CA47425EE8F9F00A88AED /* OsLogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA47325EE8F9F00A88AED /* OsLogService.swift */; };
+		223CA47D25EE8FD900A88AED /* LogServiceComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CA47C25EE8FD900A88AED /* LogServiceComposer.swift */; };
 		2276CDBD25ED2F33003808AF /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276CDBC25ED2F33003808AF /* Story.swift */; };
 		2276CDC825ED2F8A003808AF /* StoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276CDC725ED2F8A003808AF /* StoryService.swift */; };
 		2276CDD325ED2FC4003808AF /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276CDD225ED2FC3003808AF /* Error.swift */; };
@@ -173,6 +176,9 @@
 		223CA3E325ED4C2700A88AED /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		223CA3EE25ED58CA00A88AED /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		223CA43025EE79D100A88AED /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		223CA46A25EE8F1B00A88AED /* LogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogService.swift; sourceTree = "<group>"; };
+		223CA47325EE8F9F00A88AED /* OsLogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OsLogService.swift; sourceTree = "<group>"; };
+		223CA47C25EE8FD900A88AED /* LogServiceComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogServiceComposer.swift; sourceTree = "<group>"; };
 		2276CDBC25ED2F33003808AF /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		2276CDC725ED2F8A003808AF /* StoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryService.swift; sourceTree = "<group>"; };
 		2276CDD225ED2FC3003808AF /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -328,6 +334,7 @@
 			children = (
 				2276CDC725ED2F8A003808AF /* StoryService.swift */,
 				2276CDD225ED2FC3003808AF /* Error.swift */,
+				223CA46A25EE8F1B00A88AED /* LogService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -343,6 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				2276CDE925ED3038003808AF /* StoryService.swift */,
+				223CA47325EE8F9F00A88AED /* OsLogService.swift */,
+				223CA47C25EE8FD900A88AED /* LogServiceComposer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -928,6 +937,7 @@
 			files = (
 				2276CDBD25ED2F33003808AF /* Story.swift in Sources */,
 				2276CDD325ED2FC4003808AF /* Error.swift in Sources */,
+				223CA46B25EE8F1B00A88AED /* LogService.swift in Sources */,
 				2276CDC825ED2F8A003808AF /* StoryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -936,7 +946,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223CA47425EE8F9F00A88AED /* OsLogService.swift in Sources */,
 				2276CDEA25ED3038003808AF /* StoryService.swift in Sources */,
+				223CA47D25EE8FD900A88AED /* LogServiceComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
