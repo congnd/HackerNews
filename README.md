@@ -7,6 +7,7 @@
 * [Modular Design](#modular-design)
 * [Design pattern for UI layer](#design-pattern-for-ui-layer)
 * [Input-Output pattern for ViewModels](#input-output-pattern-for-viewmodels)
+* [Making UI](#making-ui)
 * [Coding Guidelines](#coding-guidelines)
 * [Testing](#testing)
 * [Environment](#environment)
@@ -95,6 +96,14 @@ Please refer to these pages if you have no idea about what I've mentioned above.
 2. RxSwift: https://github.com/ReactiveX/RxSwift
 
 
+## Making UI
+Storyboard and Xibs are great but they are not friendly for code review. 
+That's the reason interface builder tools like Storyboards and Xibs are not allowed in this project.
+
+You have to create all of you views by code with the help from `SnapKit` to write layout code 
+a bit shorter and cleaner.
+
+
 ## Coding Guidelines
 We are following the coding guidelines defined by Google here: 
 
@@ -104,6 +113,8 @@ Please make sure that you understand all the rules written there before writting
 
 Additionally, we are also using SwfitLint to enfoce all the common rules so please make sure that
 you don't violate any of them. Always try to solve all the warnings.
+
+Last but not least, please make sure that you are not leaving any layout constraint warnings.
 
 
 ## Testing
