@@ -3,7 +3,7 @@
 *Please read carefully this documentation before starting to make any change*
 
 ## Table of contents
-
+* [Features](#features)
 * [Modular Design](#modular-design)
 * [Design pattern for UI layer](#design-pattern-for-ui-layer)
 * [Input-Output pattern for ViewModels](#input-output-pattern-for-viewmodels)
@@ -12,6 +12,20 @@
 * [Testing](#testing)
 * [Environment](#environment)
 * [Documentation](#documentation)
+
+## Features
+Implemented features so far:
+- List stories screen with the following features:
+  - Fetch and show top 50 stories from `HackerNews`
+  - Allow user to filter the fetched stories by time or ranking (score)
+  - Allow user to refresh the stories
+  - Don't clear fetched storis after refresh failure
+  - Open links associated with stories in in-app Safari browser
+
+***Known issue***: `HackerNews` doesn't seem to providing a batch API 
+to fetch detail info for multiple stories at once. So currently, 
+we are making multiple request a time to fetch detail info for fetched story ids.
+This is really bad, I know, but it seems that we have no way except creating our own API.
 
 ## Modular Design
 To reduce the complexity as the project growths and having good separation of concerns,
