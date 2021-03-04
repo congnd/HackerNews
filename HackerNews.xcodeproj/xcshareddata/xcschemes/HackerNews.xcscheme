@@ -26,7 +26,32 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "22E204F025ED0FEE008B6B62"
+            BuildableName = "Api.framework"
+            BlueprintName = "Api"
+            ReferencedContainer = "container:HackerNews.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "22E2054125ED1034008B6B62"
+            BuildableName = "Platform.framework"
+            BlueprintName = "Platform"
+            ReferencedContainer = "container:HackerNews.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "22E2056A25ED1075008B6B62"
+            BuildableName = "iOS.framework"
+            BlueprintName = "iOS"
+            ReferencedContainer = "container:HackerNews.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
