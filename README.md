@@ -146,6 +146,11 @@ When writting unit tests please:
 
 Please check the implemented unit tests in each module above for details.
 
+### How to run tests
+Just select the corresponding scheme for the module you want to run 
+unit tests then press `Cmd + U`.
+
+If you want to run all the tests in the project, select the `HackerNews` scheme and press `Cmd + U`
 
 ## Environment
 - Xcode 12.4
